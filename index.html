@@ -449,13 +449,213 @@ img.emoji {
   <button type="submit" class="subscribe-btn">أشترك</button>
 
 </div></div>
-<label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off"></label><input type="hidden" name="_mc4wp_timestamp" value="1640265437"><input type="hidden" name="_mc4wp_form_id" value="156"><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1"><div class="mc4wp-response"></div>
+<label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off"></label><input type="hidden" name="_mc4wp_timestamp" value="1640265932"><input type="hidden" name="_mc4wp_form_id" value="156"><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1"><div class="mc4wp-response"></div>
 </form>
 <!-- / Mailchimp for WordPress Plugin -->
 
 		</div>
 	</div>
 </div></div></div></div></div>
+<div class="clearfix"></div></section><section id="map" class="vc_rows wpb_row vc_row-fluid"><div class="row"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper ">	
+	<div id="map-canvas-7487" class="map-warp" style="height: 450px;"></div>
+
+	<script type="text/javascript">
+		(function($) { "use strict"
+		    $(document).ready(function(){
+
+		        var locations = [
+					['', 24.75349925903283, 46.676711697291054, 2]
+		        ];
+
+				var map = new google.maps.Map(document.getElementById('map-canvas-7487'), {
+				  	zoom: 17,
+					scrollwheel: false,
+					navigationControl: true,
+					mapTypeControl: false,
+					scaleControl: false,
+					draggable: true,
+					styles: [{
+						"featureType": "water",
+						"elementType": "geometry.fill",
+						"stylers": [{
+							"color": "#d3d3d3"
+						}]
+					},
+					{
+						"featureType": "transit",
+						"stylers": [{
+							"color": "#808080"
+						},
+							{
+								"visibility": "off"
+							}
+								   ]
+					},
+					{
+						"featureType": "road.highway",
+						"elementType": "geometry.stroke",
+						"stylers": [{
+							"visibility": "on"
+						},
+							{
+								"color": "#b3b3b3"
+							}
+								   ]
+					},
+					{
+						"featureType": "road.highway",
+						"elementType": "geometry.fill",
+						"stylers": [{
+							"color": "#ffffff"
+						}]
+					},
+					{
+						"featureType": "road.local",
+						"elementType": "geometry.fill",
+						"stylers": [{
+							"visibility": "on"
+						},
+							{
+								"color": "#ffffff"
+							},
+							{
+								"weight": 1.8
+							}
+								   ]
+					},
+					{
+						"featureType": "road.local",
+						"elementType": "geometry.stroke",
+						"stylers": [{
+							"color": "#d7d7d7"
+						}]
+					},
+					{
+						"featureType": "poi",
+						"elementType": "geometry.fill",
+						"stylers": [{
+							"visibility": "on"
+						},
+							{
+								"color": "#ebebeb"
+							}
+								   ]
+					},
+					{
+						"featureType": "administrative",
+						"elementType": "geometry",
+						"stylers": [{
+							"color": "#a7a7a7"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "geometry.fill",
+						"stylers": [{
+							"color": "#ffffff"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "geometry.fill",
+						"stylers": [{
+							"color": "#ffffff"
+						}]
+					},
+					{
+						"featureType": "landscape",
+						"elementType": "geometry.fill",
+						"stylers": [{
+							"visibility": "on"
+						},
+							{
+								"color": "#efefef"
+							}
+								   ]
+					},
+					{
+						"featureType": "road",
+						"elementType": "labels.text.fill",
+						"stylers": [{
+							"color": "#696969"
+						}]
+					},
+					{
+						"featureType": "administrative",
+						"elementType": "labels.text.fill",
+						"stylers": [{
+							"visibility": "on"
+						},
+							{
+								"color": "#737373"
+							}
+								   ]
+					},
+					{
+						"featureType": "poi",
+						"elementType": "labels.icon",
+						"stylers": [{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "poi",
+						"elementType": "labels",
+						"stylers": [{
+							"visibility": "off"
+						}]
+					},
+					{
+						"featureType": "road.arterial",
+						"elementType": "geometry.stroke",
+						"stylers": [{
+							"color": "#d6d6d6"
+						}]
+					},
+					{
+						"featureType": "road",
+						"elementType": "labels.icon",
+						"stylers": [{
+							"visibility": "off"
+						}]
+					},
+					{},
+					{
+						"featureType": "poi",
+						"elementType": "geometry.fill",
+						"stylers": [{
+							"color": "#dadada"
+						}]
+					}
+				],
+				center: new google.maps.LatLng(24.75349925903283, 46.676711697291054),
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+				});
+
+				var infowindow = new google.maps.InfoWindow();
+
+				var marker, i;
+
+				for (i = 0; i < locations.length; i++) {
+					marker = new google.maps.Marker({
+						position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+						map: map ,
+						icon: 'https://soha-ahmed.github.io/gadaq-portal/wp-content/uploads/map-marker-3-1.png',
+					});
+				  	google.maps.event.addListener(marker, (function(marker, i) {
+						return function() {
+							infowindow.setContent(locations[i][0]);
+							infowindow.open(map, marker);
+						}
+				  	})(marker, i));
+				}
+
+		    });
+
+		})(jQuery);
+	</script>
+
+</div></div></div></div>
 <div class="clearfix"></div></section><section id="contact" class="vc_rows wpb_row vc_row-fluid vc_custom_1487661632804"><div class="container"><div class="row">
 <div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper ">
 	<div class="wpb_text_column wpb_content_element ">
